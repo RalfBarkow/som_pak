@@ -13,8 +13,8 @@ md5sums=('ec95d1d637e7cee648a1dca90926bfe1'
 
 build() {
 	cd $srcdir;
-	patch -bp0 < som_pak.txt;
-	patch -bp0 < som_pak.txt;
+	patch --follow-symlinks som_pak.txt som_pak.txt.patch -o som_pak.patch.patch;
+	patch -bp0 < som_pak.patch.patch;
 	cd $srcdir/$pkgname-$pkgver;
 	make -f makefile.unix;
 }
